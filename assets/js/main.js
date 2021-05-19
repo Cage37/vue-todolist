@@ -23,32 +23,61 @@ const app = new Vue ({
     data: {
         
         logo: "./assets/img/logo.png",
+        
         newTask: "",
+        
         tasks: [
             "Learn HTML",
             "Learn CSS",
             "Learn JS",
             "Learn PHP"
         ],
+        
         tasksCompleted: [],
+        
+        tasksTrashed: [],
+    
     },
 
     methods: {
         
-        addTask(){
+        addTask() {
             this.tasks.push(this.newTask)
             this.newTask = "" 
         },
 
-        removeTask(index){
+        removeTask (index) {
             console.log("Remove task number" + index);
             this.tasks.splice(index, 1)
         },
 
-        addTaskCompleted(index) {
+        addTaskCompleted (index) {
             this.tasksCompleted.push(this.tasks[index]);
             this.tasks.splice(index, 1);
-        }
+        },
 
+        putBackTask (index) {
+            this.tasks.push(this.tasksCompleted[index]);
+            this.tasksCompleted.splice(index, 1);
+        },
+
+        taskModified(index) {
+            var modify = prompt("How do you want to modify the task?");
+            this.tasks.splice(index, 1, modify);
+
+        },
+
+        addTaskTrashed (index) {
+            this.tasksTrashed.push(this.tasks[index]);
+            this.tasks.splice(index, 1);
+        },
+
+        emptyBin () {
+            var question = prompt("This will delete all tasks forever! Confirm? [Y/N]");
+            console.log(question);
+            if (question === "Y") {
+                this.tasksTrashed = [];
+            }
+        }
     }
 });
