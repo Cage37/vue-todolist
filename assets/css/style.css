@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app{
+    background-color: rgb(102, 247, 198);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.maincont{
+    display: flex;
+    flex-direction: row;
+}
+
+img{
+    width: 400px;
+    height: 100px;
+}
+
+i{
+    padding-left: 10px;
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    margin-top: 50px;
+}
+
+button{
+    height: 30px;
+    background-color: black;
+    color: white;
+    margin-left: 20px;
+}
+
+.tasks{
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border: 3px solid purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.tasks p{
+    padding-bottom: 30px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.task{
+    background-color: rgb(131, 241, 205);
+    width: 180px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.no_task p{
+    font-size: 30px;
+    margin-top: 50px;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE-TODOLIST</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous"/>
+</head>
+<body>
+
+    <div id="app" tabindex="0" @keyup.enter = "addTask">
+        <div class="logo">
+            <img :src="logo" alt="">
+        </div>
+        <div class="add_task">
+            <input v-model="newTask" placeholder="Add your task">
+            <button @click="addTask">Add task</button>
+        </div>
+
+        <div class="maincont">
+            <div class="tasks" v-if="tasks.length > 0">
+                <p>ToDo List</p>
+                <div class="task" v-for="(task, index) in tasks"> {{task}}
+                    <i class="fas fa-check-circle" @click="addTaskCompleted(index)"></i>
+                    <i class="fas fa-times-circle" @click="removeTask(index)"></i>
+                </div>
+            </div>
+            <div class="no_task" v-else>
+                <p>Nothing to do...</p>
+            </div>
+            <div class="tasks" v-if="tasksCompleted.length > 0">
+                <p>Task Completed</p>
+                <div class="task" v-for="(task, index) in tasksCompleted"> {{task}}
+                    <i class="fas fa-redo"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
